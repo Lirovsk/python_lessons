@@ -14,16 +14,21 @@ inside_fridge = [["orange", "rice and beans", "corn flakes", "coffe", "banana" ]
 #Input of some user data
 
 im_hungry = input("Hi "+ my_name + ", Are you hungry?\n")
+im_hungry = im_hungry.lower()
 
-if (im_hungry == "yes") or (im_hungry == "Yes") or (im_hungry == "y") or (im_hungry == "Y") or (im_hungry == "yep") or (im_hungry == "Yep"):
+if (im_hungry == "yes") or (im_hungry == "y") or (im_hungry == "yep"):
     im_hungry = True
 else:
     im_hungry = False
 
 if im_hungry:
+    t.sleep(0.4)
     time_now = int(input("What time is it now? "))
+
+#in case of breakfast time
     if time_now >6 and time_now <9:
         time_eat = "breakfast"
+        t.sleep(0.4)
         print("It is breakfast time!")
         t.sleep(0.7)
         for i in range(0,4): 
@@ -43,6 +48,7 @@ if im_hungry:
             sys.stdout.flush()
             t.sleep(0.5)              
 
+#in case of morning break time
     elif time_now >= 9 and time_now < 11:
         print("It is morning break time!")
         t.sleep(0.7)
@@ -69,6 +75,7 @@ if im_hungry:
             sys.stdout.flush()
             t.sleep(0.5)
 
+#in case of lunch time
     elif time_now >= 12 and time_now < 14:
         print("It is lunch time!")
         t.sleep(0.7)
@@ -89,6 +96,7 @@ if im_hungry:
             sys.stdout.flush()
             t.sleep(0.5)
 
+#in case of afternoon break time
     elif time_now >= 14 and time_now < 18:
         print("It is fternoon break time!")
         t.sleep(0.7)
@@ -115,6 +123,7 @@ if im_hungry:
             sys.stdout.flush()
             t.sleep(0.5)
 
+#in case of dinner time
     elif time_now >= 19 and time_now < 22:
         time_eat = "dinner"
         print("It is dinner time!")
@@ -136,6 +145,7 @@ if im_hungry:
             sys.stdout.flush()
             t.sleep(0.5)
 
+#in case the time is too close to the next meal
     elif time_now==11 or time_now==18:
         t.sleep(0.4)
         print("It is too close to the next meal, you should wait a little bit more")
@@ -148,6 +158,7 @@ if im_hungry:
             sys.stdout.flush()
             t.sleep(0.5)
 
+#in case the time is too late to eat
     else:
         t.sleep(0.4)
         print("You should not eat now, go to sleep")
@@ -159,6 +170,8 @@ if im_hungry:
             print(".", end= "")
             sys.stdout.flush()
             t.sleep(0.5)
+
+#in case the user is not hungry
 else: 
     t.sleep(0.4)
     print("It is okay then")
