@@ -1,14 +1,3 @@
-#n = int(input())
-#n_aux= 0
-#matrix = [[0 for x in range(2)] for y in range(n)]
-#while n_aux < n:
-#    matrix [n_aux][0] = 0
-#    matrix [n_aux][1] = 1
-#    n_aux += 1
-
-#print(matrix)
-
-
 n = int(input())
 n_aux= 0
 matrix = []
@@ -46,4 +35,3 @@ for linha in range(len(matrix)):
 
 for linha in range(len(matrix)):
     print(matrix[linha][RESULTADO])
-           
