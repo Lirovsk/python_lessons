@@ -1,0 +1,53 @@
+import sys
+import time
+
+class conta:
+    def __init__(self):
+        self.nome = input("Digite o nome do titular da conta: ")
+        self.cpf = input("Digite o CPF do titular da conta: ")
+        self.idade = int(input("Digite a idade do titular da conta: "))
+        pass
+
+class conta_corrente(conta):
+    def __init__(self):
+        super().__init__()
+        if self.idade < 18:
+            print("Conta corrente não pode ser aberta para menores de 18 anos.")
+        
+        else:
+            self.agencia = input("Digite a agência da conta: ")
+            self.n_conta = input("Digite o número da conta: ")
+            self.acesso_inves = True
+        
+
+class conta_poupanca(conta):
+    def __init__(self):
+        super().__init__()
+        self.agencia = input("Digite a agência da conta: ")
+        self.n_conta = input("Digite o número da conta: ")
+        self.acesso_inves = False
+        pass
+
+
+
+
+def main():
+    print("Bem vindo ao banco do povo!")
+    time.sleep(1)
+    print("Vamos abrir uma conta para você!")
+    time.sleep(1)
+    print("Qual tipo de conta você deseja abrir?")
+    time.sleep(1)
+    print("1 - Conta corrente")
+    print("2 - Conta poupança")
+    tipo_conta = input("Digite o número correspondente ao tipo de conta que deseja abrir: ")
+    if tipo_conta == "1":
+        conta_corrente()
+    elif tipo_conta == "2":
+        conta_poupanca()
+    else:
+        print("Opção inválida.")
+        sys.exit()
+    
+if __name__ == "__main__":
+    main()
