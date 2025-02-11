@@ -40,6 +40,7 @@ class conta:
 
 class conta_corrente(conta):
     def __init__(self):
+         #using 'super' to inherit the attributes from the parent class
         super().__init__()
         if self.idade < 18:
             print("Conta corrente não pode ser aberta para menores de 18 anos.")
@@ -63,6 +64,7 @@ class conta_corrente(conta):
     
 class conta_poupanca(conta):
     def __init__(self):
+        #using 'super' to inherit the attributes from the parent class
         super().__init__()
         self.agencia = input("Digite a agência da conta: ")
         self.n_conta = input("Digite o número da conta: ")
@@ -74,6 +76,11 @@ class conta_poupanca(conta):
 
     def saldo_conta(self):
         print(f"Seu saldo da sua poupança é: R${self.saldo}.")
+
+def transferencia(conta):
+    #defining one function to work with both classes of accounts
+    conta.transferir()
+    return
 
 def main():
     print("Bem vindo ao banco do povo!")
@@ -102,7 +109,7 @@ def main():
             conta_.saque(valor)
             
         elif opcao == "3":
-            conta_.transferir()
+            transferencia(conta_)
 
         elif opcao == "4":
             conta_.saldo_conta()
