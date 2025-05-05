@@ -1,8 +1,11 @@
 # In the first example, I'm goint to use a subtraction function to be used with the decorator, the decorator will be used to ensure the B value is never greater than the A value
 def dacorator(func):
     def wrapper(a, b):
-        if b > a:
-            raise ValueError("B cannot be greater than A")
+        try:
+            if b > a:
+                raise ValueError("B cannot be greater than A")
+        except ValueError as e:
+            return (f"Error: {e}")
         return func(a, b)
     return wrapper
 
