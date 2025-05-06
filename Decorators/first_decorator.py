@@ -1,5 +1,8 @@
+import functools
+
 # In the first example, I'm goint to use a subtraction function to be used with the decorator, the decorator will be used to ensure the B value is never greater than the A value
 def dacorator(func):
+    @functools.wraps(func)
     def wrapper(a, b):
         try:
             if b > a:
